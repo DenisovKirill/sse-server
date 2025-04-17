@@ -19,7 +19,7 @@ app.get('/sse', (req, res) => {
 
   const keepAlive = setInterval(() => {
     res.write(':\n\n');
-  }, 30000);
+  }, 10000);
 
   req.on('close', () => {
     clearInterval(keepAlive);
