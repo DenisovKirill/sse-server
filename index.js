@@ -30,6 +30,8 @@ app.get('/sse', (req, res) => {
 
 function sendSessionCount() {
   const data = `data: ${clients.length}\n\n`;
+  console.log('[SSE] Sending session count:', clients.length);
+
   clients.forEach((res) => {
     try {
       res.write(`event: sessionCount\n${data}`);
